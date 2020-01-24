@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+
+    <title>Rock, Paper, Scissors</title>
+
+    <style>
+        .game {
+            padding: 2em;
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Rock, Paper, Scissors</h1>
+
+    <div class="game">
+
+        <script>
+
+            // Take user Input 
+            var userChoice = prompt("Do you choose rock, paper or scissors?");
+
+            if (!userChoice) {
+                // User choice was undefined
+                document.write("<p>You cheated! fight like a man.</p>");
+            } else {
+                // Display user choice
+                document.write("<p>Your Choice:" + " " + userChoice + "</p>");
+            }
+
+            // Create computer random choice
+            var computerChoice = Math.random();
+            if (computerChoice < 0.34) {
+                computerChoice = "paper";
+            } else if (computerChoice <= 0.67) {
+                computerChoice = "scissors";
+            } else {
+                computerChoice = "rock";
+            }
+
+            // Display computer choice
+            document.write("<p> Computer Choice:" + " " + computerChoice + "</p>");
+
+            // Run the compare function
+            var results = compare(userChoice, computerChoice);
+
+             // Display results
+             document.write("<br><hr style:'color:white'><br><h3 style='color:red'>Result :- &nbsp;&nbsp;" + results+"</h3>");
+
+            // Compare user choice vs computer choice
+            function compare (choice1, choice2) {
+                if (choice1 === choice2) {
+                    return "It's a tie!";
+                }
+                if (choice1 === "rock") {
+                    if (choice2 === "scissors") {
+                        // rock wins
+                        return "You win!";
+                    } else {
+                        // paper wins
+                        return "Computer win !.";
+                    }
+                }
+                if (choice1 === "paper") {
+                    if (choice2 === "rock") {
+                        // paper wins
+                        return "You win!";
+                    } else {
+                        // scissors wins
+                        return "Computer win !.";
+                    }
+                }
+                if (choice1 === "scissors") {
+                    if (choice2 === "rock") {
+                        // rock wins
+                        return "Computer win !.";
+                    } else {
+                        // scissors wins
+                        return "You win!";
+                    }
+                }
+            };
+
+           
+        </script>
+
+    </div>
+    <h4><span style="color: red;">*</span>Note: Refresh Page to play again!!</h4>
+</body>
+
+</html>
